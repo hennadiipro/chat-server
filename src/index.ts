@@ -16,5 +16,3 @@ app.use("/users", userRoute);
 httpServer.listen(PORT, () => {
   console.log("Server is running on port 5000");
 });
-
-export { io };
