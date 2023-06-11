@@ -8,7 +8,7 @@ class CreateRoomController {
     const room: ICreateRoomDto = request.body;
 
     try {
-     const createdRoom = this.createRoomService.execute(room);
+      const createdRoom = await this.createRoomService.execute(room);
 
       return response.status(200).json(createdRoom);
     } catch (e) {

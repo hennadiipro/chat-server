@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
 
 import { userRoute } from "./routes/user";
 import { roomRoute } from "./routes/room";
@@ -7,6 +8,7 @@ import { roomRoute } from "./routes/room";
 const PORT = 5000;
 const app = express();
 
+app.use(bodyParser.json());
 app.use("/rooms", roomRoute);
 app.use("/users", userRoute);
 

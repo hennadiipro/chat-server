@@ -3,6 +3,7 @@ import { createRoomController } from "./instance";
 
 const roomRoute = Router();
 
-roomRoute.post("/create", createRoomController.handle);
+roomRoute.post("/create", (req, res) => 
+  createRoomController.handle(req, res));
 
 export { roomRoute };
