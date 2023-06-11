@@ -6,7 +6,7 @@ COPY mongod.conf /etc/mongod.conf
 
 # Set up the MongoDB admin user and password
 ENV MONGO_INITDB_ROOT_USERNAME=admin
-ENV MONGO_INITDB_ROOT_PASSWORD=secret
+ENV MONGO_INITDB_ROOT_PASSWORD=7v7HRAE2&fm5
 
 # Expose the default MongoDB port (27017)
 EXPOSE 27017

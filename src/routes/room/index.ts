@@ -1,9 +1,8 @@
 import { Router } from "express";
+import { createRoomController } from "./instance";
 
 const roomRoute = Router();
 
-roomRoute.get("/", (req, res) => {
-  res.json({ message: "Room route" });
-});
+roomRoute.post("/create", createRoomController.handle);
 
 export { roomRoute };
