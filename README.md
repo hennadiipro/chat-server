@@ -6,3 +6,4 @@ Technologies:
 - Socket.io
 - Typescript
 - Express
+- Mongoose
