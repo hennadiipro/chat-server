@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { ICreateRoomDto } from "../dto/ICreateRoomDto";
+import { IRoomDto } from "../dto/IRoomDto";
 
-const roomSchema = new Schema<ICreateRoomDto>({
+const roomSchema = new Schema<IRoomDto>({
   title: String,
   messages: [{
     content: String,
