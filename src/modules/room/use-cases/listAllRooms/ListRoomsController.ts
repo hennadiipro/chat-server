@@ -10,7 +10,7 @@ class ListRoomsController {
 
       return response.status(200).json(allRooms);
     } catch (e) {
-      return response.status(500).send();
+      return response.status(500).json(e);
     }
   }
 }
