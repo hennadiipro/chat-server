@@ -3,6 +3,7 @@ import { createRoomController } from "./instance/CreateRoom";
 import { listRoomsController } from "./instance/ListAllRooms";
 import { listRoomByIdController } from "./instance/ListRoomById";
 import { deleteRoomController } from "./instance/DeleteRoom";
+import { deleteManyRoomsController } from "./instance/DeleteManyRooms";
 
 const roomRoute = Router();
 
@@ -17,5 +18,8 @@ roomRoute.get("/room/list/:id", (req, res) =>
 
 roomRoute.delete("/room/:id", (req, res) => 
   deleteRoomController.handle(req, res));
+
+roomRoute.delete("/", (req, res) =>
+  deleteManyRoomsController.handle(req, res));
 
 export { roomRoute };

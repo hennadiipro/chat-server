@@ -6,6 +6,7 @@ interface IRoomRepository {
   listAllRooms(): Promise<IRoomDto[]>;
   listRoom(id: string): Promise<IRoomDto | null>;
   deleteRoom(id: string): Promise<void>;
+  deleteManyRooms(ids: string[]): Promise<void>;
 }
 
 export { IRoomRepository };

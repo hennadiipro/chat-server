@@ -10,6 +10,8 @@ const roomSchema = new Schema<IRoomDto>({
       id: String,
     },
   }],
+  // owner
+  // groupPeople
 });
 
 export const Room = model('Room', roomSchema);
