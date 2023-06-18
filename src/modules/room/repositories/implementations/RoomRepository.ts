@@ -9,6 +9,9 @@ class RoomRepository implements IRoomRepository {
 
     return await roomDocument.save();
   }
+  async listAllRooms(): Promise<ICreateRoomDto[]> {
+    return Room.find({});
+  }
 }
 
 export { RoomRepository };

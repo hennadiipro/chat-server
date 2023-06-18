@@ -10,7 +10,7 @@ class CreateRoomController {
     try {
       const createdRoom = await this.createRoomService.execute(room);
 
-      return response.status(200).json(createdRoom);
+      return response.status(201).json(createdRoom);
     } catch (e) {
       return response.status(400).json(e);
     }
