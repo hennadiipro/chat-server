@@ -1,0 +1,3 @@
+class UpdateRoomController {}
+
+export { UpdateRoomController };

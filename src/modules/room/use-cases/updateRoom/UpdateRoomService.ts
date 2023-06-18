@@ -1,0 +1,3 @@
+class UpdateRoomService {}
+
+export { UpdateRoomService };
