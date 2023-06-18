@@ -15,6 +15,9 @@ class RoomRepository implements IRoomRepository {
   async listRoom(id: string): Promise<IRoomDto | null> {
     return await Room.findOne({ _id: id });
   }
+  async deleteRoom(id: string): Promise<void> {
+    await Room.deleteOne({ _id: id });
+  }
 }
 
 export { RoomRepository };
