@@ -4,6 +4,7 @@ import { listRoomsController } from "./instance/ListAllRooms";
 import { listRoomByIdController } from "./instance/ListRoomById";
 import { deleteRoomController } from "./instance/DeleteRoom";
 import { deleteManyRoomsController } from "./instance/DeleteManyRooms";
+import { updateRoomController } from "./instance/UpdateRoom";
 
 const roomRoute = Router();
 
@@ -21,5 +22,8 @@ roomRoute.delete("/room/:id", (req, res) =>
 
 roomRoute.delete("/", (req, res) =>
   deleteManyRoomsController.handle(req, res));
+
+roomRoute.put("/room/:id", (req, res) =>
+  updateRoomController.handle(req, res));
 
 export { roomRoute };

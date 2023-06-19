@@ -6,8 +6,13 @@ class DeleteManyRoomsController {
   async handle (request: Request, response: Response) {
     const roomIds: string[] = request.body;
     try {
-      await this.deleteManyRoomsService.execute(roomIds);
-      return response.status(200).send();
+      const isDeleteSuccess = await this.deleteManyRoomsService.execute(roomIds);
+
+      if (isDeleteSuccess.deletedCount) {
+        return response.status(200).send();
+      } else {
+        return response.status(500).send();
+      }
     } catch (e) {
       return response.status(500).send();
     }
