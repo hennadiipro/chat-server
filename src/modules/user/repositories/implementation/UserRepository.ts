@@ -26,6 +26,9 @@ class UserRepository implements IUserRepository {
   async deleteManyUsers(userIds: string[]): Promise<IDeleteDocument> {
     return await User.deleteMany({ _id: userIds });
   }
+  async listAllUsers(): Promise<IUserDto[]> {
+    return await User.find({});
+  }
 }
 
 export { UserRepository };

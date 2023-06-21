@@ -7,6 +7,7 @@ interface IUserRepository {
   create(user: ICreateUserDto): Promise<IUserDto>;
   listUserById(id: string): Promise<IUserDto | null>;
   listUsersByRoom(roomId: string): Promise<UserRoom[]>;
+  listAllUsers(): Promise<IUserDto[]>;
   deleteUser(userId: string): Promise<IDeleteDocument>;
   deleteManyUsers(userIds: string[]): Promise<IDeleteDocument>;
 }
