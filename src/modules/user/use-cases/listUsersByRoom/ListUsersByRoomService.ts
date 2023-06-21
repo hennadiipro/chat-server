@@ -1,9 +1,9 @@
 import { UserRepository } from "../../repositories/implementation/UserRepository";
 
 class ListUsersByRoomService {
-  constructor(private listUserByRoomRepository: UserRepository) {}
+  constructor(private userRepository: UserRepository) {}
   execute(roomId: string) {
-    return this.listUserByRoomRepository.listUsersByRoom(roomId);
+    return this.userRepository.listUsersByRoom(roomId);
   }
 }
 

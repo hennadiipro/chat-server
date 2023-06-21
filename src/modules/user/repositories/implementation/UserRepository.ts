@@ -1,3 +1,4 @@
+import { IDeleteDocument } from "../../../interfaces/IDeleteDocument";
 import { UserRoom } from "../../../room/dto/IRoomDto";
 import { Room } from "../../../room/entities/RoomEntity";
 import { ICreateUserDto } from "../../dto/ICreateUserDto";
@@ -18,6 +19,12 @@ class UserRepository implements IUserRepository {
     const room = await Room.findOne({ _id: roomId });
 
     return room?.groupPeople || [];
+  }
+  async deleteUser(userId: string): Promise<IDeleteDocument> {
+    return await User.deleteOne({ _id: userId });
+  }
+  async deleteManyUsers(userIds: string[]): Promise<IDeleteDocument> {
+    return await User.deleteMany({ _id: userIds });
   }
 }
 

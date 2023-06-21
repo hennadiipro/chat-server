@@ -2,6 +2,8 @@ import { Router } from "express";
 import { createUserController } from "./instance/CreateUser";
 import { listUserByIdController } from "./instance/ListUserById";
 import { listUsersByRoomController } from "./instance/ListUsersByRoomController";
+import { deleteUserController } from "./instance/DeleteUser";
+import { deleteManyUsersController } from "./instance/DeleteManyUsers";
 
 const userRoute = Router();
 
@@ -13,5 +15,11 @@ userRoute.get("/user/:id/list", (req, res) =>
 
 userRoute.get("/room/:roomId/list", (req, res) =>
   listUsersByRoomController.handle(req, res));
+
+userRoute.delete("/user/:id", (req, res) =>
+  deleteUserController.handle(req, res));
+
+userRoute.delete("/", (req, res) =>
+  deleteManyUsersController.handle(req, res));
 
 export { userRoute };
