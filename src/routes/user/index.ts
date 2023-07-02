@@ -5,11 +5,14 @@ import { listUsersByRoomController } from "./instance/ListUsersByRoomController"
 import { deleteUserController } from "./instance/DeleteUser";
 import { deleteManyUsersController } from "./instance/DeleteManyUsers";
 import { listAllUsersController } from "./instance/ListAllUsers";
+import { getGithubAccessToken } from "./middlewares/getGithubAccessToken";
+import { getGithubUser } from "./middlewares/getGithubUser";
 
 const userRoute = Router();
 
-userRoute.post("/create", (req, res) => 
-  createUserController.handle(req, res));
+userRoute.post("/create/:code", getGithubAccessToken,
+  getGithubUser, (req, res) => 
+    createUserController.handle(req, res));
 
 userRoute.get("/", (req, res) =>
   listAllUsersController.handle(req, res));

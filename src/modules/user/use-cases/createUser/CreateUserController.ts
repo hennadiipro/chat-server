@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
 import { ICreateUserDto } from "../../dto/ICreateUserDto";
 import { CreateUserService } from "./CreateUserService";
+import { IGithubUser } from "../../dto/IGithubUser";
 
 class CreateUserController {
   constructor (private createUserService: CreateUserService) {}
   async handle(request: Request, response: Response) {
-    const user: ICreateUserDto = request.body;
+    const user: IGithubUser = request.body;
 
     try {
       const createdUser = await this.createUserService.execute(user);

@@ -1,18 +1,17 @@
 import { IDeleteDocument } from "../../../interfaces/IDeleteDocument";
 import { UserRoom } from "../../../room/dto/IRoomDto";
 import { Room } from "../../../room/entities/RoomEntity";
-import { ICreateUserDto } from "../../dto/ICreateUserDto";
-import { IUserDto } from "../../dto/IUserDto";
+import { IGithubUser } from "../../dto/IGithubUser";
 import { User } from "../../entities/UserEntity";
 import { IUserRepository } from "../IUserRepository";
 
 class UserRepository implements IUserRepository {
-  async create(user: ICreateUserDto): Promise<IUserDto> {
+  async create(user: IGithubUser): Promise<IGithubUser> {
     const userDocument = new User(user); 
 
     return await userDocument.save();
   }
-  async listUserById(id: string): Promise<IUserDto | null> {
+  async listUserById(id: string): Promise<IGithubUser | null> {
     return await User.findOne({ _id: id });
   }
   async listUsersByRoom(roomId: string): Promise<UserRoom[]> {
@@ -26,7 +25,7 @@ class UserRepository implements IUserRepository {
   async deleteManyUsers(userIds: string[]): Promise<IDeleteDocument> {
     return await User.deleteMany({ _id: userIds });
   }
-  async listAllUsers(): Promise<IUserDto[]> {
+  async listAllUsers(): Promise<IGithubUser[]> {
     return await User.find({});
   }
 }

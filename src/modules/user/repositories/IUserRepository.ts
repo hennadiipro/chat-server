@@ -1,13 +1,12 @@
 import { IDeleteDocument } from "../../interfaces/IDeleteDocument";
 import { UserRoom } from "../../room/dto/IRoomDto";
-import { ICreateUserDto } from "../dto/ICreateUserDto";
-import { IUserDto } from "../dto/IUserDto";
+import { IGithubUser } from "../dto/IGithubUser";
 
 interface IUserRepository {
-  create(user: ICreateUserDto): Promise<IUserDto>;
-  listUserById(id: string): Promise<IUserDto | null>;
+  create(user: IGithubUser): Promise<IGithubUser>;
+  listUserById(id: string): Promise<IGithubUser | null>;
   listUsersByRoom(roomId: string): Promise<UserRoom[]>;
-  listAllUsers(): Promise<IUserDto[]>;
+  listAllUsers(): Promise<IGithubUser[]>;
   deleteUser(userId: string): Promise<IDeleteDocument>;
   deleteManyUsers(userIds: string[]): Promise<IDeleteDocument>;
 }

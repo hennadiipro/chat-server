@@ -1,6 +1,7 @@
 interface ICreateUserDto {
-  email: string;
-  password: string;
+  name: string;
+  username: string;
+  avatar_url: string;
 }
 
 export { ICreateUserDto };
