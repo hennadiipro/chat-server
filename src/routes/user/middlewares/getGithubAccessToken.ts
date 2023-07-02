@@ -26,7 +26,6 @@ async function getGithubAccessToken (request: Request, response: Response, next:
       return response.status(404).send();
     }
   } catch (e) {
-
     return response.status(500).send();
   }
 }

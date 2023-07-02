@@ -12,7 +12,7 @@ class UserRepository implements IUserRepository {
     return await userDocument.save();
   }
   async listUserById(id: string): Promise<IGithubUser | null> {
-    return await User.findOne({ _id: id });
+    return await User.findOne({ login: id });
   }
   async listUsersByRoom(roomId: string): Promise<UserRoom[]> {
     const room = await Room.findOne({ _id: roomId });

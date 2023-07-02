@@ -9,8 +9,6 @@ import { getGithubAccessToken } from "./middlewares/getGithubAccessToken";
 import { getGithubUser } from "./middlewares/getGithubUser";
 
 const userRoute = Router();
-// TO DO: Make another middleware to validate if the user already exist on database,
-// whether yes, return the user data saved on database
 userRoute.post("/create/:code", getGithubAccessToken,
   getGithubUser, (req, res) => 
     createUserController.handle(req, res));
