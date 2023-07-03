@@ -9,7 +9,7 @@ import { getGithubAccessToken } from "./middlewares/getGithubAccessToken";
 import { getGithubUser } from "./middlewares/getGithubUser";
 
 const userRoute = Router();
-userRoute.post("/create/:code", getGithubAccessToken,
+userRoute.post("/login/:code", getGithubAccessToken,
   getGithubUser, (req, res) => 
     createUserController.handle(req, res));
 

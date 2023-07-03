@@ -16,13 +16,16 @@ async function getGithubAccessToken (request: Request, response: Response, next:
 
   try {
     const userToken = await axios.post<IGithubToken>
-      ("https://github.com/login/oauth/access_token", body);
+      ("https://github.com/login/oauth/access_token", body, {
+        headers: {
+          "Accept": "application/json"
+        }
+      });
 
-    if (userToken) {
+    if (userToken.status === 200) {
       request.params.token = userToken.data.access_token;
       next();
     } else {
-      console.log(userToken);
       return response.status(404).send();
     }
   } catch (e) {
