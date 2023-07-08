@@ -22,7 +22,7 @@ async function getGithubAccessToken (request: Request, response: Response, next:
         }
       });
 
-    if (userToken.status === 200) {
+    if (userToken.data.access_token) {
       request.params.token = userToken.data.access_token;
       next();
     } else {

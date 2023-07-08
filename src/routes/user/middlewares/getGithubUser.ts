@@ -1,20 +1,26 @@
 import { NextFunction, Request, Response } from "express";
-import { Octokit } from "@octokit/core";
+import axios from "axios";
 
 async function getGithubUser (request: Request, response: Response, next: NextFunction) {
   const token: string = request.params.token;
-  const octokit = new Octokit({ auth: token });
+  
+  try {
+    if (!token) return;
+    const githubUser = await axios.get("https://api.github.com/user", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
 
-  const githubUser = await octokit.request("GET /user");
-
-  if (githubUser) {
-    request.body = githubUser;
-    next();
-  } else {
-    return response.status(404).send();
+    if (githubUser.data) {
+      request.body = githubUser.data;
+      next();
+    } else {
+      return response.status(401).send();
+    }
+  } catch (e) {
+    return response.status(401).send();
   }
-
-  return response.status(500).send();
 }
 
 export { getGithubUser };

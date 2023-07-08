@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { ICreateUserDto } from "../../dto/ICreateUserDto";
 import { CreateUserService } from "./CreateUserService";
 import { IGithubUser } from "../../dto/IGithubUser";
 
@@ -14,7 +13,7 @@ class CreateUserController {
       if (createdUser) {
         return response.status(201).json(createdUser);
       } else {
-        return response.status(500).send();
+        return response.status(401).send();
       }
     } catch (e) {
       return response.status(500).send();
