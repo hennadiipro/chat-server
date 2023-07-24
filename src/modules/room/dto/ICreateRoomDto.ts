@@ -1,5 +1,7 @@
 interface ICreateRoomDto {
-  title: string;
+  room_id: string;
+  isPrivate: boolean;
+  password?: string;
 }
 
 export { ICreateRoomDto };

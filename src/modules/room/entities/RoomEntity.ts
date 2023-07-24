@@ -2,7 +2,9 @@ import { Schema, model } from "mongoose";
 import { IRoomDto } from "../dto/IRoomDto";
 
 const roomSchema = new Schema<IRoomDto>({
-  title: String,
+  room_id: String,
+  password: String,
+  isPrivate: Boolean,
   messages: [{
     content: String,
     sender: {

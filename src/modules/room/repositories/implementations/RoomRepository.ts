@@ -5,8 +5,8 @@ import { IRoomDto } from "../../dto/IRoomDto";
 import { IDeleteDocument } from "../../../interfaces/IDeleteDocument";
 
 class RoomRepository implements IRoomRepository {
-  async create({ title }: ICreateRoomDto): Promise<IRoomDto> {
-    const roomDocument = new Room({ title });
+  async create(room: ICreateRoomDto): Promise<IRoomDto> {
+    const roomDocument = new Room(room);
 
     return await roomDocument.save();
   }

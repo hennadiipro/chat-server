@@ -5,7 +5,6 @@ async function getGithubUser (request: Request, response: Response, next: NextFu
   const token: string = request.params.token;
   
   try {
-    if (!token) return;
     const githubUser = await axios.get("https://api.github.com/user", {
       headers: {
         Authorization: `Bearer ${token}`,

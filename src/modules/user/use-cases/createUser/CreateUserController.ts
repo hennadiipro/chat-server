@@ -9,9 +9,10 @@ class CreateUserController {
 
     try {
       const createdUser = await this.createUserService.execute(user);
+      const token = request.params.token;
 
       if (createdUser) {
-        return response.status(201).json(createdUser);
+        return response.status(201).json({ user: createdUser, token });
       } else {
         return response.status(401).send();
       }

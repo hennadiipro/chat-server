@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { IUserDto } from "../dto/IUserDto";
 import { IGithubUser } from "../dto/IGithubUser";
 
 const userSchema = new Schema<IGithubUser>({

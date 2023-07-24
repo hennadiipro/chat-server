@@ -1,7 +1,7 @@
 import axios from "axios";
 import dotenv from "dotenv";
 import { NextFunction, Request, Response } from "express";
-import { IGithubToken } from "../../../modules/user/dto/IGithubUser";
+import { IGithubToken } from "../user/dto/IGithubUser";
 
 dotenv.config();
 
