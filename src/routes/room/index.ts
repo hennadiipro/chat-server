@@ -5,10 +5,11 @@ import { listRoomByIdController } from "./instance/ListRoomById";
 import { deleteRoomController } from "./instance/DeleteRoom";
 import { deleteManyRoomsController } from "./instance/DeleteManyRooms";
 import { updateRoomController } from "./instance/UpdateRoom";
+import { checkGithubToken } from "../../modules/middlewares/checkGithubToken";
 
 const roomRoute = Router();
 
-roomRoute.post("/create", (req, res) => 
+roomRoute.post("/create", checkGithubToken, (req, res) => 
   createRoomController.handle(req, res));
 
 roomRoute.get("/list", (req, res) => 
